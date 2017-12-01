@@ -47,13 +47,13 @@
 			}
 		</style>
 	</head>
-	<body>
+	<body ">
 		<div class="module-content">
 			<!--解析二维码-->
 			<h1 class="module-head">解析二维码</h1>
 			<div class="box">
 				<h3>长按二维码解析</h3>
-				<img onClick="getUrl(this,'img-url')" src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1062989499,1682648318&fm=58"/>
+				<img id="neturl" onClick="getUrl(this,'img-url')" src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1062989499,1682648318&fm=58"/>
 				<p class="url-box" id="urlBox"></p>
 			</div>
 			<div class="box">
@@ -68,7 +68,8 @@
 		<script src="js/llqrcode.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/analyticCode.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			function getUrl(e,param){
+
+			   function getUrl(e,param){
 				analyticCode.getUrl(param,e,function(url1,url2){
 				/**
 				url1===>http://weixin.qq.com/r/lkNRSXbEbCsTrTIq9xaE
@@ -80,8 +81,8 @@
 					e.previousElementSibling.src = url2;
 				});
 			}
-			
-			
+			//执行函数
+			getUrl(document.getElementById("neturl"),'img-url');
 			
 			//验证是不是有效的URL地址
 			function testUrlAddress(aurl){
@@ -93,6 +94,7 @@
 					}  
 				} 
 			} 
+
 			
 			//testUrlAddress("http://cdn.atool.org/res/atool-org-weixin.jpg");
 			//testUrlAddress("http://weixin.qq.com/r/lkNRSXbEbCsTrTIq9xaE");
