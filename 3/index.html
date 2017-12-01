@@ -80,6 +80,26 @@
 					e.previousElementSibling.src = url2;
 				});
 			}
+			
+			
+			
+			//验证是不是有效的URL地址
+			function testUrlAddress(aurl){
+			var strRegex ='(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]';    
+			var re=new RegExp(strRegex);   
+			if(aurl!=""){  
+					if (!re.test(aurl)) {   
+						alert("请输入正确的url地址-? "+aurl);    
+					}  
+				} 
+			} 
+			
+			testUrlAddress("http://cdn.atool.org/res/atool-org-weixin.jpg");
+			testUrlAddress("http://weixin.qq.com/r/lkNRSXbEbCsTrTIq9xaE");
+			testUrlAddress("weixin.qq.com/r/lkNRSXbEbCsTrTIq9xaE");
+			testUrlAddress("weixin.qq.com");
+			testUrlAddress("http://weixin.qq.com");
+			testUrlAddress("r/lkNRSXbEbCsTrTIq9xaE");
 		</script>
 	</body>
 </html>
